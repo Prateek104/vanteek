@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#f8b4cf" />
+    <title>Vanteek: Love Duel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- 2s Splash -->
+    <div id="splashOverlay" class="splash-overlay">
+      <div class="splash-card">
+        <svg viewBox="0 0 200 180" class="splash-heart" aria-hidden="true">
+          <path d="M100 160 C 20 110, 10 60, 45 35 C 70 16, 95 26, 100 45 C 105 26, 130 16, 155 35 C 190 60, 180 110, 100 160 Z" fill="#ff6fa3" stroke="#b33c69" stroke-width="4" />
+        </svg>
+        <div class="splash-text">VANTEEK</div>
+      </div>
+    </div>
+
+    <!-- Start overlay -->
+    <div id="startOverlay" class="overlay" style="display:none">
+      <div class="overlay-card">
+        <h1>Vanteek: Love Duel</h1>
+        <p class="subtitle">2 Players • Fill the Love Meter to 100%</p>
+        <button id="startBtn" class="btn primary">PRESS START</button>
+        <p class="note">P1: A/D + F/G/Q/E • P2: ←/→ + K/L/I/O • Mobile: Use on‑screen pads</p>
+      </div>
+    </div>
+
+    <canvas id="game" aria-label="Vanteek Love Duel" role="img"></canvas>
+
+    <!-- HUD -->
+    <div id="hud" aria-hidden="true">
+      <div class="hud-left">
+        <div class="pill">1P</div>
+      </div>
+      <div class="hud-right">
+        <div class="pill">2P</div>
+        <button id="restartBtn" class="btn tiny">RESTART</button>
+      </div>
+    </div>
+
+    <!-- Bottom controls overlay (no overlap with meter) -->
+    <div id="controlsOverlay" class="controls-overlay" aria-hidden="true">
+      P1: A/D + F/G/Q/E • P2: ←/→ + K/L/I/O • Mobile: use on-screen pads
+    </div>
+
+    <!-- Touch controls: P1 left, P2 right -->
+    <div id="touch-controls" class="touch-controls">
+      <div class="tc-column tc-left">
+        <div class="tc-row">
+          <button id="p1-left" class="tc-btn" data-key="a" aria-label="P1 left">◀</button>
+          <button id="p1-right" class="tc-btn" data-key="d" aria-label="P1 right">▶</button>
+        </div>
+        <div class="tc-row">
+          <button id="p1-kiss" class="tc-btn action kiss" data-key="f" aria-label="P1 kiss">😘</button>
+          <button id="p1-hug" class="tc-btn action hug" data-key="g" aria-label="P1 hug">🤗</button>
+        </div>
+        <div class="tc-row">
+          <button id="p1-blow" class="tc-btn action blow" data-key="q" aria-label="P1 blow kiss">💞</button>
+          <button id="p1-heart" class="tc-btn action heart" data-key="e" aria-label="P1 heart hands">💗</button>
+        </div>
+      </div>
+      <div class="tc-column tc-right">
+        <div class="tc-row">
+          <button id="p2-left" class="tc-btn" data-key="ArrowLeft" aria-label="P2 left">◀</button>
+          <button id="p2-right" class="tc-btn" data-key="ArrowRight" aria-label="P2 right">▶</button>
+        </div>
+        <div class="tc-row">
+          <button id="p2-kiss" class="tc-btn action kiss" data-key="k" aria-label="P2 kiss">😘</button>
+          <button id="p2-hug" class="tc-btn action hug" data-key="l" aria-label="P2 hug">🤗</button>
+        </div>
+        <div class="tc-row">
+          <button id="p2-blow" class="tc-btn action blow" data-key="i" aria-label="P2 blow kiss">💞</button>
+          <button id="p2-heart" class="tc-btn action heart" data-key="o" aria-label="P2 heart hands">💗</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
